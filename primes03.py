@@ -1,5 +1,7 @@
+#setting up our environment
 import math
 
+# Reads in the file in the argument
 def readFile(fileName):
         myNums = []
         fileObj = open(fileName, "r") #opens the file in read mode
@@ -21,11 +23,13 @@ def getInitialNumofReps(initialPrimes):
                 myPrime = primes[counter]
         return counter + 1
 
+# This function decides how many prime numbers need to be checked
 def getNumReps(theNumber, currentNumReps, thePrimes):
         if thePrimes[currentNumReps-1]*primes[currentNumReps-1] > theNumber:
                 return 0
         return 1
 
+# This is the critical function that decides if the number is a prime or not
 def isPrime(number, list, reps):
         countr = 0
         while countr < reps:
@@ -34,14 +38,16 @@ def isPrime(number, list, reps):
                 countr = countr + 1
         return 0
 
+#this is setting up our variables
+primes = readFile('primes.txt') #the primes array gets all the primes in the file
+numReps = getInitialNumofReps(primes) #numReps determines how many primes to check
+myNumber = primes[len(primes)-1] #this is the first number we'll be checking
 
-primes = readFile('primes.txt')
-numReps = getInitialNumofReps(primes)
-
+#begin main
 #0 means to add it to the text file
 #1 means it is not prime, or it is already in the file
+#the while loop cycles through every number starting with "myNumber"
 
-myNumber = primes[len(primes)-1]
 while True:
         if isPrime(myNumber, primes, numReps) == 0:
                 primes.append(myNumber)
