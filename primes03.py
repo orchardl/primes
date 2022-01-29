@@ -41,7 +41,7 @@ def isPrime(number, list, reps):
 #this is setting up our variables
 primes = readFile('primes.txt') #the primes array gets all the primes in the file
 numReps = getInitialNumofReps(primes) #numReps determines how many primes to check
-myNumber = primes[len(primes)-1] #this is the first number we'll be checking
+myNumber = primes[len(primes)-1] + 1 #this is the first number we'll be checking
 
 #begin main
 #0 means to add it to the text file
