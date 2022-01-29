@@ -51,9 +51,12 @@ numIter = input("How many more numbers do you want me to check for primes?")
 #1 means it is not prime, or it is already in the file
 #the while loop cycles through every number starting with "myNumber"
 
+start = time.time()
 for _ in range(numIter):
         if isPrime(myNumber, primes, numReps) == 0:
                 primes.append(myNumber)
                 print(myNumber)
         myNumber = myNumber + 1
         numReps = numReps + getNumReps(myNumber, numReps, primes)
+finish = time.time()
+print("---%s seconds ---" % (start - finish))
