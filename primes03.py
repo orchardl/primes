@@ -1,5 +1,7 @@
 #setting up our environment
 import math
+import time #this is for testing to determine the best number of processes to run on my machine
+import multiprocessing
 
 # Reads in the file in the argument
 def readFile(fileName):
@@ -42,13 +44,14 @@ def isPrime(number, list, reps):
 primes = readFile('primes.txt') #the primes array gets all the primes in the file
 numReps = getInitialNumofReps(primes) #numReps determines how many primes to check
 myNumber = primes[len(primes)-1] + 1 #this is the first number we'll be checking
+numIter = input("How many more numbers do you want me to check for primes?")
 
 #begin main
 #0 means to add it to the text file
 #1 means it is not prime, or it is already in the file
 #the while loop cycles through every number starting with "myNumber"
 
-while True:
+for _ in range(numIter):
         if isPrime(myNumber, primes, numReps) == 0:
                 primes.append(myNumber)
                 print(myNumber)
